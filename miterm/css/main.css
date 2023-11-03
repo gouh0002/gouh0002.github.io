@@ -1,0 +1,139 @@
+html {
+    font-family: sans-serif;
+}
+
+body {
+    background-color: #aad4cf;
+}
+
+/* using max-width to adapt the page with
+ smaller screens and keep a max width for larger
+ ones*/
+
+.wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: #D4E9E7;
+    box-sizing: border-box;
+    /* set the dimentions for the whole element not just content*/
+}
+
+/**
+* making the header a positioned ancestor 
+in order to position title as absolute
+*/
+.header {
+    position: relative;
+}
+
+/*  - width to 100% to adapt and fill the parent element
+    - z-index to make image go to background layer */
+.image-header {
+    width: 100%;
+    z-index: 0;
+    position: relative;
+}
+
+/*
+    position absolute to position the text relatively 
+    to header element
+    setting bottom property so the text never overlap on
+    the menu even when the screen is narrow
+    setting transform x=-50% to bring the text to absolute center
+    z-index used to move the text forth
+*/
+.title {
+    position: absolute;
+    left: 50%;
+    bottom: 20%;
+    transform: translate(-50%, 0%);
+    z-index: 1;
+    color: aliceblue;
+    font-family: sans-serif;
+}
+
+article p {
+    text-align: justify;
+}
+
+/* display navigation bar as an inline flexible container
+to adapt to the width of the header and have child elements
+inline
+if the number of children changes they all adapt and share the space */
+.navigation {
+    display: inline-flex;
+    width: 100%;
+}
+
+/* width=100% to always fill total available width */
+.navbar {
+    text-align: center;
+    width: 100%;
+    text-decoration: none;
+    font-size: 1.3em;
+    text-transform: uppercase;
+    color: black;
+    font-weight: bold;
+}
+
+/* apply menu separator to even elements*/
+.navbar:nth-child(even) {
+    border-right: 0.1em solid grey;
+    border-left: 0.1em solid grey;
+}
+
+/* float left to blend with the text around*/
+.image-article {
+    float: left;
+    width: 12em;
+
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+}
+
+main {
+    margin: 1rem;
+}
+
+form {
+    display: block;
+    padding: 1.5em;
+    border: solid 0.1em;
+}
+
+input,
+textarea {
+    display: block;
+    width: 100%;
+    border: 1px solid rgb(195, 194, 194);
+    margin-top: 5px;
+    margin-bottom: 10px;
+
+}
+
+textarea {
+    border: 1px solid rgb(117, 117, 117);
+}
+
+/*-display radio buttons inline
+   -width set to auto to limit to content
+*/
+input[type="radio"] {
+    display: inline;
+    width: auto;
+}
+
+/*set the backgroud color to be the same as the content background */
+.submit {
+    width: auto;
+    padding: 10px;
+    background-color: inherit;
+    border: 1px solid rgb(117, 116, 116);
+
+}
+
+footer {
+    text-align: right;
+    padding: 1.5em;
+    font-size: 0.8em;
+}
