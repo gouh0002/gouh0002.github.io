@@ -1,141 +1,306 @@
-/* reset start */
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+/* Mobile first aproache */
+/* Define custom variables for consistent colors throughout the stylesheet */
+:root {
+    --background-color: #222222;
+    --background-light: #aaaaaa;
+    --foreground-color: #c78c06;
+    --foreground-light: rgb(255, 230, 172);
 }
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
-}
-body {
-	line-height: 1;
-}
-ol, ul {
-	list-style: none;
-}
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
-/* reset end */
 
+/* set the font for the hole website */
 html {
     font-family: "Open sans";
 }
+
 .wrapper {
+    display: flex;
+    flex-direction: column;
     max-width: 1200px;
-    margin:auto;
-    padding:1em;
+    margin: auto;
+    padding: 1em;
+    box-sizing: border-box;
+    width: 100%;
 
 }
-header {
-    background-color: #222222;
 
+/* header and footer display colors */
+.header,
+.footer {
+    background-color: var(--background-color);
+    color: var(--foreground-color);
+
+}
+
+/* default color for the links throughout the website */
+a {
+    color: var(--foreground-color);
 }
 
 .logo {
-background-color: #c78c06
-;
+    background-color: var(--foreground-color);
+}
+/* navigation bar display using flexbox */
+.nav {
+    width: 100%;
 }
 
-header a {
-    display: block;
-    color: #c78c06;
-    text-decoration: none;
-    padding: 1em;
-    font-size: 1em;
-}
-
-li.active a { 
-    color: #525250;
-    background-color: #c78c06;
-}
-
-header ul {
+.nav ul {
     display: flex;
     flex-direction: column;
     align-items: center;
+    list-style: none;
 }
 
-/* header form {
-    display 
-} */
-#search {
-    width: 90%;
-}
-#search-button {
-margin-top:2em ;
-
-}
-
-/* connect with us section diaplay */
-
-.banner  {
-
-    background-image: url("../images/main-banner.jpg");
-    padding:2em 0 2em 0;
-
-
-    
-}
-.banner .wrapper {
-    background-color:rgba(0, 0, 0, 0.6) ;
-    
-}
-.banner h1 {
-    font-size: 4em;
-    color: white;
-  
-}
-.banner p {
-    color: white;
-    font-size: 0.8em;
-    
-}
-.banner a {
-    display: inline-block;
-    background-color: #c78c06;
-    text-decoration: none;
-    color: black;
-    width: 135px;
-    height: 30px;
-    padding: 15px 20px ;
+.nav li {
+    width: 100%;
     text-align: center;
-    font-size: 0.91rem;
-    font-weight: 500;
-    margin-top: 20px;
 }
 
+.nav a {
+    display: block;
+    text-decoration: none;
+    color: unset;
+    font-size: 1em;
+    padding: 1em;
+}
+/* change the color if a hover or active */
+.nav a:hover,
+a.active {
+    background-color: var(--foreground-color);
+    color: var(--background-color);
+}
 
-/* .material-symbols-outlined {
-  font-variation-settings:
-  'FILL' 0,
-  'wght' 400,
-  'GRAD' 0,
-  'opsz' 24
-} */
+/* styling the serch box in the navigation bar */
+.search-container {
+    display: flex;
+    float: right;
+}
+
+.search-container input[type=text] {
+    padding: 15px 5px;
+    margin-top: 0.5em;
+    font-size: 17px;
+    border: none;
+    flex-grow: 1;
+}
+
+.search-container button {
+    padding: 9px;
+    margin-top: 0.5em;
+    font-size: 17px;
+    background-color: inherit;
+    color: inherit;
+    border: 2px solid var(--foreground-color);
+    border-color: inherit;
+    cursor: pointer;
+}
+
+/* set the common style for the all sections */
+.page-section {
+    padding: 1% 0;
+}
+
+.page-section h1 {
+    font-size: 4em;
+    font-weight: bold;
+}
+
+.page-section h2 {
+    font-size: 2em;
+    color: black;
+    margin-top: 0.4em;
+    margin-bottom: 0.4em;
+    font-weight: bolder;
+}
+
+.page-section img {
+    width: 100%;
+    margin: 0;
+}
+
+.page-section article {
+    margin-bottom: 1em;
+    background-color: var(--foreground-light);
+    overflow: hidden;
+}
+
+.page-section article>* {
+    margin: 1rem;
+    box-sizing: border-box;
+}
+
+/* banner section display */
+.banner {
+    background-image: url("../images/main-banner.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.banner .wrapper {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.banner * {
+    display: block;
+    color: white;
+    margin-top: 0.6em;
+    margin-bottom: 0.4em;
+    font-size: 1.2em;
+}
+
+.banner h1 {
+    font-size: 6em;
+    font-weight: bolder;
+}
+
+/* about-us section display*/
+.about-us {
+    background-color: var(--foreground-light);
+}
+
+.about-us .right-panel *{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+/* our services section display*/
+.services .wrapper {
+    background-color: white;
+
+}
+
+.services h1 {
+    font-size: 3.5em;
+    margin-top: 0.4em;
+    margin-bottom: 0.2em;
+    font-weight: bolder;
+}
+
+/* vision section */
+.vision {
+    background-image: url("../images/vision.jpg");
+}
+
+.vision .wrapper {
+    background-color: unset;
+}
+
+.vision h2 {
+    margin-left: 0;
+    color: white;
+}
+
+.vision .button {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 2px solid var(--foreground-color);
+}
+
+/* team section */
+.team h3 {
+    border-bottom: 2px solid var(--foreground-color);
+    margin: 1em 0;
+    font-weight: bolder;
+}
+
+/* contact section */
+.contact-form{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-bottom: 2em;
+}
+
+.contact-form input,
+.contact-form textarea {
+    display: block;
+    border: 1px solid var(--background-light);
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.submit {
+    padding: 5px;
+    background-color: var(--background-color);
+    border: 1px solid var(--background-light);
+    color: var(--foreground-color);
+    position: absolute;
+    bottom: 0;
+    transform: translate(0%, 100%);
+}
+/* 
+=====
+generic elements style 
+=====
+*/
+
+/* table style */
+table, th, td {
+    border: 2px solid var(--background-color);
+    padding: 0.5em;
+}
+
+table{
+    width: 100%;
+}
+
+th{
+    background-color: var(--foreground-light);
+}
+
+/* footer text display */
+.footer p {
+    margin: 10px 0;
+}
+
+/* page buttons */
+.light {
+    background-color: var(--foreground-color);
+}
+.light *{
+    color: var(--background-color);
+}
+
+.dark {
+    background-color: var(--background-color);
+}
+.dark *{
+    color: whitesmoke;
+}
+
+.button {
+    display: inline-flex;
+    text-decoration: none;
+    padding: 20px 10px 20px 20px;
+}
+
+.button *{
+    margin: unset;
+    margin-top: 5%;
+    font-family: inherit;
+    font-size: 30px;
+    font-weight: normal;
+    padding: unset;
+}
+
+.button .material-symbols-outlined {
+    padding-left: 0;
+    margin-top: unset;
+    font-size: 60px;
+    font-family: 'Material Symbols Outlined';
+    font-weight: bolder;
+}
+
+.google-maps {
+    position: relative;
+    padding-bottom: 75%; 
+    height: 0;
+    overflow: hidden;
+}
+.google-maps iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+}
